@@ -1,0 +1,142 @@
+#logo{
+    width:475px;
+    animation: hw5_logo 5s;
+}
+/* five second animation */
+
+@keyframes h5_logo{
+    from{width: 25px;}
+    to{width:475px}
+}
+/* this animates the logo, setting a start and end point */
+
+body{
+    font-family: 'poppins', serif;
+    background-color: #f1f1f1;
+    background-image:url("../images/concrete_seamless.png")
+}
+/* sets up background color, image, standard text */
+header{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav_links{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a:visited {
+    color: blue;
+}
+/* once links are visited, the link will change to this color */
+
+.card > header{
+    background: #288088;
+    border:2px;
+    display:flex;
+    padding: 20px, 0px, 0px, 20px;
+    border-top-right-radius: 50px;
+    border-top-left-radius: 50px;
+}
+
+.card{
+    border-radius:50px;
+    flex-basis: 450px;
+}
+
+/* flex basis initializes the size of 450px, and border radius is consistent with rest of sheet */
+
+.pricing{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* justify-content: center should put center the boxes horizontally  */
+
+
+
+/* styling gallery below here*/
+
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery img{
+    margin:10px;
+    width:300px;
+    border:10px solid #50c7c7
+}
+
+@media screen and (min-width:900px){
+ header{
+    display:flex;
+    flex-direction:row; 
+  justify-content:space-between;}  
+ }
+
+/* The full/larger screens will use row for flex-direction, which is reflected here  */
+
+ .nav_links{
+    justify-content: space-between;
+    flex-direction: row;
+}
+/* styles the content so there is as much space alloted between two items as possible */
+
+.pricing{
+    justify-content: center;
+}
+
+.card{
+    flex-basis: 275px;
+}
+
+body > header{
+    position: sticky;
+    top:0px;
+}
+
+/* top gives position a reference point, otherwise the position will not work. Position sticky is bases on the user's scroll position */
+
+@media all and (prefers-reduced-motion:reduce){
+#logo{
+    animation:none;
+}
+}
+
+/* this is one of our accessibility options, this is a media query */
+
+@media print{
+    body{
+       font-family: Arial, Helvetica, sans-serif;
+       background-image: none;
+    }   
+
+    /* media query for printing, everything under here will work with printing a page */
+   .gallery, #gallery{
+       display: none;
+   }
+   /* this set is so if someone is choosing to print the page, gallery images will be omitted  */
+   nav{
+       width: 100%;
+   }
+   /* standard width for print out */
+    .nav_links{
+       display: flex;
+       justify-content: space-around;
+    } 
+   .pricing{
+       flex-wrap: nowrap;
+     align-items: end;
+     }
+     /* nowrap sets default values for printing */
+     .card{
+       border: 2px solid #45ADDD;
+       flex-basis: 325px;
+     }
+   }
